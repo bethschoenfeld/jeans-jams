@@ -22,7 +22,10 @@ class Api::ArtistsController < ApplicationController
   end
 
   def destroy
-    @artist = Artist.find(params[:id]).delete
+    @artist = Artist.find(params[:id])
+    @artist.destroy
+
+    render status: :ok
 
   end
 
