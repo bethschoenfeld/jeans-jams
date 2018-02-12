@@ -1,30 +1,30 @@
 class Api::SongsController < ApplicationController
 
     def index
-      @songs = Artist.find(params[:artist_id]).songs
-      render json: @songs
+      @song = Artist.find(params[:artist_id]).songs
+      render json: @song
     end
   
     def show
-        @songs = Song.find(params[:id])
-        render json: @songs
+        @song = Song.find(params[:id])
+        render json: @song
     end
   
     def create
-      @songs = Song.create!(song_params)
-      render json: @songs
+      @song = Song.create!(song_params)
+      render json: @song
     end
   
     def update
-      @songs = Song.find(params[:id])
-      @songs + update!(song_params)
+      @song = Song.find(params[:id])
+      @song + update!(song_params)
   
-      render json: @songs
+      render json: @song
     end
   
     def destroy
-      @songs = Song.find(params[:id])
-      @songs.destroy
+      @song = Song.find(params[:id])
+      @song.destroy
   
       render status: :ok
   
